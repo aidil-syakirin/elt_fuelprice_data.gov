@@ -22,8 +22,11 @@ import psycopg2.extras as extras
 from src import connect_to_postgress()
 
 
-def execute_values(conn, df, table): 
+def update_values(df, table): 
 
+	#establish connection to postgress first
+	conn = connect_to_postgress(dbname, user, password, host, port)
+	
 	tuples = [tuple(x) for x in df.to_numpy()] 
 
 	cols = ','.join(list(df.columns)) 
@@ -41,7 +44,5 @@ def execute_values(conn, df, table):
 	print("the dataframe is inserted") 
 	cursor.close() 
 
-
-conn = connect_to_postgress(dbname, user, password, host, port)
-
-execute_values(conn, tr_df, 'tr_fuelprice') 
+#call the function to update the table
+update_values(tr_df, 'tr_fuelprice') 
