@@ -1,10 +1,12 @@
 # provides ways to access the Operating System and allows us to read the environment variables
 import os
+from datetime import datetime
 
 from src.extract import create_and_extract_data
 from src.transform import transform_and_remove_duplicate
 from src.extract import connect_to_postgress
-from src.update import update_values
+#from src.update import update_values #for future project phase
+import psycopg2
 
 from dotenv import load_dotenv
 load_dotenv() #take environment variables from .env only for local testing
@@ -21,12 +23,12 @@ start_time = datetime.now()
 
 # make a connection to postgres and insert data from csv file in local env
 print("\nExtracting and transforming data in sql...")
-create_and_extract_data(dbname, host, port, user, password)
+create_and_extract_data(dbname, user, password, host, port)
 print('\nExtraction and transformation in sql completed')
 
 # remove duplicated data and removing unneeded column
 print("\nRemoving duplicated data...")
-transform_and_remove_duplicate(dbname, host, port, user, password)
+transform_and_remove_duplicate(dbname, user, password, host, port)
 print('\nDuplicated data removed')
 
 # this creates a variable that calculates how long it takes to run the script
