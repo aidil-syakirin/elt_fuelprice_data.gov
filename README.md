@@ -4,7 +4,8 @@
 The goal of the project is to build an ETL pipeline. ETL (Extract, Transform, Load) is a data pipeline used to collect data from various sources, transforms the data according to business requirements, and loads the data into a destination data storage.
 
 ## Project Summary
-This ETL pipeline objective is to extract fuel price data in Malaysia from data.gov API and load it into local PostgreSQL database. The pipeline will be automated with Airflow to continue fetching new updated data weekly and transformed accordingly using pandas.
+This ETL pipeline objective is to extract fuel price data in Malaysia from data.gov API and load it into local PostgreSQL database. <br>
+The pipeline will be automated with Airflow to continue fetching new updated data weekly and transformed accordingly using pandas. <br> The end product will be connected to Power BI for analysis and business insight.
 
 This project contains the following files:
 - ``src/extract.py`` - a python script that contains instructions to connect to PostgreSQL data warehouse and to extract data from data.gov API<br>
