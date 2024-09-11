@@ -1,19 +1,15 @@
-# elt_fuelprice_data.gov
-
 # ETL Pipeline Project
 
 ## Project Description
 The goal of the project is to build an ETL pipeline. ETL (Extract, Transform, Load) is a data pipeline used to collect data from various sources, transforms the data according to business requirements, and loads the data into a destination data storage.
 
 This project contains the following files:
-- ``src/extract.py`` - a python script that contains instructions to connect to Amazon Redshift data warehouse and to extract online transactions data with transformation tasks performed using SQL<br>
-- ``src/transform.py`` - a python script that contains instructions to identify and remove duplicated records<br>
-- ``src/load_data_to_s3.py`` - a python script that contains instructions to connect to Amazon S3 cloud object storage and to write the cleaned data as a CSV file into an S3 bucket<br>
-- ``main.py`` - a python script that contains all instructions to execute all the steps to extract, transform, and load the transformed data using the functions from extract.py, transform.py, and load_data_to_s3.py<br>
+- ``src/extract.py`` - a python script that contains instructions to connect to PostgreSQL data warehouse and to extract data from data.gov API<br>
+- ``src/transform.py`` - a python script that contains instructions to remove unwanted columns and for data selection<br>
+- ``fuelprice_etl.py`` - a DAG task in python script that contains workflow of this pipeline project in Airflow<br>
+- ``main.py`` - a python script that for contains all instructions to execute all the steps to extract, transform, and load the transformed data using the functions from extract.py and transform.py
 - ``.env.example`` - a text document that contains the list of environment variables used in .env file<br>
 - ``requirements.txt`` - a text document that contains all the libraries required to execute the code<br>
-- ``Dockerfile`` - a text document that contains all the instructions a user could call on the command line to assemble an image<br>
-- ``.dockerignore`` - a text document that contains files or directories to be excluded when docker CLI sends the context to docker daemon. This helps to avoid unnecessarily sending large or sensitive files and directories to the daemon and potentially adding them to images using ADD or COPY.<br>
 - ``.gitignore`` - a text document that specifies intentionally untracked files that Git should ignore<br>
 
 ## How to Run the ETL Pipeline project
