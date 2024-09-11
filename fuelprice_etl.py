@@ -5,13 +5,9 @@ import pendulum
 import pandas as pd
 import os
 
-from dotenv import load_dotenv
-load_dotenv() # take environment variables from .env only for local testing
-
-
 @dag(
     start_date=pendulum.datetime(2024,9,9),
-    schedule="@once",
+    schedule="5 0 * * 4", #set to trigger every Thursday at 0005 hrs
     catchup=False,
     max_active_runs=1
 )
@@ -51,8 +47,8 @@ def fuelprice_etl():
             # Get SQLAlchemy engine from the connection
             engine = hook.get_sqlalchemy_engine()
 
-            # Load the DataFrame into the 'test_fuelprice' table in Postgres
-            tr_df.to_sql('test_fuelprice', engine, if_exists='replace', index=False)
+            # Load the DataFrame into the 'tr_fuelprice' table in Postgres
+            tr_df.to_sql('tr_fuelprice', engine, if_exists='replace', index=False)
             print("The dataframe is inserted")
         except Exception as error:
             print(f"Error: {error}")
