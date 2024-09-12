@@ -10,7 +10,7 @@ The pipeline will be automated with Airflow to continue fetching new updated dat
 This project contains the following files:
 - ``src/extract.py`` - a python script that contains instructions to connect to PostgreSQL data warehouse and to extract data from data.gov API<br>
 - ``src/transform.py`` - a python script that contains instructions to remove unwanted columns and for data selection<br>
-- ``fuelprice_etl.py`` - a DAG task in python script that contains workflow of this pipeline project in Airflow<br>
+- ``dags/fuelprice_etl.py`` - a DAG task in python script that contains workflow of this pipeline project in Airflow<br>
 - ``main.py`` - a python script that for contains all instructions to execute all the steps to extract, transform, and load the transformed data using the functions from extract.py and transform.py
 - ``.env.example`` - a text document that contains the list of environment variables used in .env file<br>
 - ``requirements.txt`` - a text document that contains all the libraries required to execute the code<br>
