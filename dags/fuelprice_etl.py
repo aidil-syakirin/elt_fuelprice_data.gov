@@ -24,7 +24,7 @@ def fuelprice_etl():
 
         #Pick the data for this week and series_type = level 
         thisweek = pendulum.now()
-        thisweek = thisweek.subtract(days=1).format('YYYY-MM-DD')
+        thisweek = thisweek.subtract(days=7).format('YYYY-MM-DD')
 
         tr_df = df[df['series_type'] == 'level'][df['date'] > thisweek]
 
